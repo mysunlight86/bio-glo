@@ -1,3 +1,4 @@
 import toggleModal from './modules/toggleModal';
 
-toggleModal('a.call-btn', '.popup-call');
+toggleModal('.call-btn', '.popup-call');
+toggleModal('.discount-btn', '.popup-discount');
