@@ -5,5 +5,6 @@ import sendForm from './modules/sendForm';
 toggleModal('.call-btn', '.popup-call');
 toggleModal('.discount-btn', '.popup-discount');
 toggleModal('.check-btn', '.popup-check');
-accordion();
+accordion('accordion');
+accordion('accordion-two');
 sendForm();
