@@ -1,17 +1,7 @@
 const accordion = accordionId => {
-  const toggleSwitch = elem => {
-    if (elem.checked) {
-      elem.checked = false;
-    } else {
-      elem.checked = true;
-    }
-  };
   const accordionBlock = document.getElementById(accordionId);
   const myOnOffSwitch = document.getElementById('myonoffswitch');
-  const myOnOffSwitchTwo = document.getElementById('myonoffswitch-two');
   accordionBlock.addEventListener('click', event => {
-    event.preventDefault();
-
     const panel = event.target.closest('.panel-default');
     const btnNext = panel.querySelector('.construct-btn');
     if (panel.querySelector('.panel-collapse').classList.contains('in')) {
@@ -22,6 +12,7 @@ const accordion = accordionId => {
 
       if (event.target.closest('.construct-btn') !== null &&
       accordionBlock.querySelector(btnNext.getAttribute('href')) !== null) {
+        event.preventDefault();
         accordionBlock.querySelectorAll('.panel-collapse').forEach(elem => elem.classList.remove('in'));
         accordionBlock.querySelector(btnNext.getAttribute('href')).classList.add('in');
 
@@ -41,18 +32,9 @@ const accordion = accordionId => {
         return;
       }
 
-      if (event.target.closest('.onoffswitch') !== null && event.target.closest('#collapseOne') !== null) {
-        toggleSwitch(myOnOffSwitch);
-        return;
-      }
-
-      if (event.target.closest('.onoffswitch') !== null && event.target.closest('#collapseThree') !== null) {
-        toggleSwitch(myOnOffSwitchTwo);
-        return;
-      }
-
       return;
     } else {
+      event.preventDefault();
       accordionBlock.querySelectorAll('.panel-collapse').forEach(elem => elem.classList.remove('in'));
       panel.querySelector('.panel-collapse').classList.add('in');
       if (panel.querySelector('.panel-collapse').getAttribute('id') === 'collapseTwo') {
