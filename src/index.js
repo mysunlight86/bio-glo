@@ -13,6 +13,7 @@ toggleModal('.call-btn:not(.construct-btn)', '.popup-call');
 toggleModal('.call-btn.construct-btn', '.popup-discount');
 toggleModal('.discount-btn', '.popup-discount');
 toggleModal('.check-btn', '.popup-check');
+toggleModal('.consultation-btn', '.popup-consultation');
 
 accordion('accordion');
 accordion('accordion-two');

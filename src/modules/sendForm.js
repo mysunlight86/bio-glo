@@ -2,6 +2,7 @@ const sendForm = () => {
   const errorMessage = 'Что то пошло не так...';
   const successMassage = 'Спасибо! Мы скоро с вами свяжемся';
   const downloadMessage = 'Загрузка...';
+  const notValidData = `Введите корректные данные`;
 
   const showMessage = (
     form,
@@ -35,7 +36,7 @@ const sendForm = () => {
 
   const validators = {
     'user_name': /^[а-я]+$/i,
-    'user_quest': /^[а-я\s]+$/i,
+    'user_quest': /.*/,
     'user_phone': /^\+\d{11}$/,
     'typeValue': /.*/,
     'squareValue1': /.*/,
@@ -71,7 +72,8 @@ const sendForm = () => {
 
     const formData = new FormData(form);
     if (validateForm(formData, validators) !== null) {
-      showMessage(form, errorMessage);
+      event.preventDefault();
+      showMessage(form, notValidData);
       return;
     }
 
