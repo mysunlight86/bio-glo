@@ -1,21 +1,38 @@
-const calc = () => {
-  const calcBlock = document.getElementById('accordion');
+export function collectData() {
   const calcType = document.getElementById('myonoffswitch');
   const calcSquare = document.querySelectorAll('.expand');
   const wellBottom = document.getElementById('myonoffswitch-two');
   const calcResult = document.getElementById('calc-result');
+  return {
+    typeValue: calcType.checked ? 1 : 2,
+    squareValue1: calcSquare[0].options[calcSquare[0].selectedIndex].value,
+    countValue1: calcSquare[1].options[calcSquare[1].selectedIndex].value,
+    squareValue2: calcSquare[2].options[calcSquare[2].selectedIndex].value,
+    countValue2: calcSquare[3].options[calcSquare[3].selectedIndex].value,
+    isWellBottom: wellBottom.checked,
+    total: calcResult.value
+  };
+}
+
+export const calc = () => {
+  const calcBlock = document.getElementById('accordion');
+  const calcResult = document.getElementById('calc-result');
 
   const countSum = () => {
+
+    const {
+      typeValue,
+      squareValue1,
+      countValue1,
+      squareValue2,
+      countValue2,
+      isWellBottom
+    } = collectData();
+
     let total = 0;
-    const typeValue = calcType.checked ? 1 : 2;
     const price = typeValue === 1 ? 10000 : 15000;
-    const squareValue1 = calcSquare[0].options[calcSquare[0].selectedIndex].value;
-    const countValue1 = calcSquare[1].options[calcSquare[1].selectedIndex].value;
-    const squareValue2 = calcSquare[2].options[calcSquare[2].selectedIndex].value;
-    const countValue2 = calcSquare[3].options[calcSquare[3].selectedIndex].value;
     let squareValue = 0;
     let countValue = 0;
-    const isWellBottom = wellBottom.checked;
 
     if (typeValue === 1) {
       if (squareValue1 === '2') {
@@ -60,7 +77,7 @@ const calc = () => {
 
     total = Math.floor(price + squareValue + countValue);
 
-    if (calcType.checked) {
+    if (typeValue === 1) {
       if (isWellBottom) {
         total += 1000;
       }
@@ -70,7 +87,22 @@ const calc = () => {
       }
     }
 
-    calcResult.value = total;
+    // calcResult.value = total;
+    // Digit counter
+    let count = 1;
+    const idInterval = setInterval(() => {
+      const step = total / 37.5;
+      calcResult.value = count;
+
+      if (count < total) {
+        count += step;
+        calcResult.value = Math.floor(count);
+      } else {
+        clearInterval(idInterval);
+        count = total;
+        calcResult.value = count;
+      }
+    });
   };
 
   calcBlock.addEventListener('change', event => {
@@ -79,7 +111,4 @@ const calc = () => {
       countSum();
     }
   });
-
 };
-
-export default calc;

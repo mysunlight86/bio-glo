@@ -36,7 +36,14 @@ const sendForm = () => {
   const validators = {
     'user_name': /^[а-я]+$/i,
     'user_quest': /^[а-я\s]+$/i,
-    'user_phone': /^\+\d{11}$/
+    'user_phone': /^\+\d{11}$/,
+    'typeValue': /.*/,
+    'squareValue1': /.*/,
+    'countValue1': /.*/,
+    'squareValue2': /.*/,
+    'countValue2': /.*/,
+    'isWellBottom': /.*/,
+    'total': /.*/,
   };
 
   /*
@@ -87,13 +94,16 @@ const sendForm = () => {
       });
   };
 
-  document.body.addEventListener('click', event => {
-    const target = event.target.closest('form');
-    if (target === null) {
-      return;
-    } else {
-      target.addEventListener('submit', onSubmit);
-    }
+  [
+    document.getElementById('form1'),
+    document.getElementById('form2'),
+    document.getElementById('form3'),
+    document.getElementById('form4'),
+    document.getElementById('form11'),
+    document.getElementById('form12'),
+    document.getElementById('form13')
+  ].forEach(form => {
+    form.addEventListener('submit', onSubmit);
   });
 };
 
