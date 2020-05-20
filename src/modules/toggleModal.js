@@ -3,7 +3,10 @@ const toggleModal = (clickSelector, modalSelector) => {
   const windowModal = document.querySelector(modalSelector);
 
   // show popup
-  clickElem.forEach(elem => elem.addEventListener('click', () => windowModal.style.display = 'block'));
+  clickElem.forEach(elem => elem.addEventListener('click', event => {
+    event.preventDefault();
+    windowModal.style.display = 'block';
+  }));
 
   // hide popup
   windowModal.addEventListener('click', event => {
