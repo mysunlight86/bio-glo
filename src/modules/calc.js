@@ -10,6 +10,7 @@ export function collectData() {
   const calcType = document.getElementById('myonoffswitch');
   const calcSquare = document.querySelectorAll('.expand');
   const wellBottom = document.getElementById('myonoffswitch-two');
+  const distInput = document.getElementById('distance');
   const calcResult = document.getElementById('calc-result');
   return {
     'well_type': calcType.checked ? 1 : 2,
@@ -18,6 +19,7 @@ export function collectData() {
     'well_diameter_double_circuit': calcSquare[2].options[calcSquare[2].selectedIndex].value,
     'well_count_double_circuit': calcSquare[3].options[calcSquare[3].selectedIndex].value,
     'is_well_bottom': wellBottom.checked,
+    'distance': distInput.value,
     'calc_result': calcResult.value
   };
 }

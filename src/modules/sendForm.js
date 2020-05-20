@@ -44,6 +44,7 @@ const sendForm = () => {
     'well_diameter_double_circuit': /.*/,
     'well_count_double_circuit': /.*/,
     'is_well_bottom': /.*/,
+    'distance': /.*/,
     'calc_result': /.*/,
   };
 
