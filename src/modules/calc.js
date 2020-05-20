@@ -1,16 +1,24 @@
+// export const question = document.querySelector('input[name="user_quest"]').value;
+export function questData() {
+  const questInput = document.querySelector('input[name="user_quest"]');
+  return {
+    'user_quest': questInput.value
+  };
+}
+
 export function collectData() {
   const calcType = document.getElementById('myonoffswitch');
   const calcSquare = document.querySelectorAll('.expand');
   const wellBottom = document.getElementById('myonoffswitch-two');
   const calcResult = document.getElementById('calc-result');
   return {
-    typeValue: calcType.checked ? 1 : 2,
-    squareValue1: calcSquare[0].options[calcSquare[0].selectedIndex].value,
-    countValue1: calcSquare[1].options[calcSquare[1].selectedIndex].value,
-    squareValue2: calcSquare[2].options[calcSquare[2].selectedIndex].value,
-    countValue2: calcSquare[3].options[calcSquare[3].selectedIndex].value,
-    isWellBottom: wellBottom.checked,
-    total: calcResult.value
+    'well_type': calcType.checked ? 1 : 2,
+    'well_diameter_single_circuit': calcSquare[0].options[calcSquare[0].selectedIndex].value,
+    'well_count_single_circuit': calcSquare[1].options[calcSquare[1].selectedIndex].value,
+    'well_diameter_double_circuit': calcSquare[2].options[calcSquare[2].selectedIndex].value,
+    'well_count_double_circuit': calcSquare[3].options[calcSquare[3].selectedIndex].value,
+    'is_well_bottom': wellBottom.checked,
+    'calc_result': calcResult.value
   };
 }
 
@@ -21,12 +29,12 @@ export const calc = () => {
   const countSum = () => {
 
     const {
-      typeValue,
-      squareValue1,
-      countValue1,
-      squareValue2,
-      countValue2,
-      isWellBottom
+      'well_type': typeValue,
+      'well_diameter_single_circuit': squareValue1,
+      'well_count_single_circuit': countValue1,
+      'well_diameter_double_circuit': squareValue2,
+      'well_count_double_circuit': countValue2,
+      'is_well_bottom': isWellBottom
     } = collectData();
 
     let total = 0;
@@ -87,22 +95,7 @@ export const calc = () => {
       }
     }
 
-    // calcResult.value = total;
-    // Digit counter
-    let count = 1;
-    const idInterval = setInterval(() => {
-      const step = total / 37.5;
-      calcResult.value = count;
-
-      if (count < total) {
-        count += step;
-        calcResult.value = Math.floor(count);
-      } else {
-        clearInterval(idInterval);
-        count = total;
-        calcResult.value = count;
-      }
-    });
+    calcResult.value = total;
   };
 
   calcBlock.addEventListener('change', event => {

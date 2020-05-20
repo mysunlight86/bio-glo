@@ -1,6 +1,6 @@
 import toggleModal from './modules/toggleModal';
 import accordion from './modules/accordion';
-import { calc, collectData } from './modules/calc';
+import { calc, collectData, questData } from './modules/calc';
 import sendForm from './modules/sendForm';
 import moreBlocks from './modules/moreBlocks';
 import checkoutController from './modules/checkoutController';
@@ -8,6 +8,7 @@ import checkoutController from './modules/checkoutController';
 
 checkoutController('.call-btn.construct-btn', '#form11', collectData);
 checkoutController('.discount-btn', '#form11', () => ({ total: "33500" }));
+checkoutController('.consultation-btn', '#form13', questData);
 
 toggleModal('.call-btn:not(.construct-btn)', '.popup-call');
 toggleModal('.call-btn.construct-btn', '.popup-discount');

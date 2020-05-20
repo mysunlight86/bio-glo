@@ -11,8 +11,6 @@ const moreBlocks = () => {
         sentenceBlocks[i].classList.remove('hidden');
       }
       sentenceSection.querySelector('.add-sentence-btn').style.display = 'none';
-
-      console.log(target);
     }
   });
 };

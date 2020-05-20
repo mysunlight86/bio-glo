@@ -38,13 +38,13 @@ const sendForm = () => {
     'user_name': /^[а-я]+$/i,
     'user_quest': /.*/,
     'user_phone': /^\+\d{11}$/,
-    'typeValue': /.*/,
-    'squareValue1': /.*/,
-    'countValue1': /.*/,
-    'squareValue2': /.*/,
-    'countValue2': /.*/,
-    'isWellBottom': /.*/,
-    'total': /.*/,
+    'well_type': /.*/,
+    'well_diameter_single_circuit': /.*/,
+    'well_count_single_circuit': /.*/,
+    'well_diameter_double_circuit': /.*/,
+    'well_count_double_circuit': /.*/,
+    'is_well_bottom': /.*/,
+    'calc_result': /.*/,
   };
 
   /*
