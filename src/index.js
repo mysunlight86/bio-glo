@@ -2,6 +2,7 @@ import toggleModal from './modules/toggleModal';
 import accordion from './modules/accordion';
 import { calc, collectData } from './modules/calc';
 import sendForm from './modules/sendForm';
+import moreBlocks from './modules/moreBlocks';
 import checkoutController from './modules/checkoutController';
 
 
@@ -17,3 +18,4 @@ accordion('accordion');
 accordion('accordion-two');
 calc();
 sendForm();
+moreBlocks();
