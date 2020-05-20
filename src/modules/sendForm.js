@@ -25,7 +25,7 @@ const sendForm = () => {
   const postData = dataForm => {
     const requestBody = {};
     dataForm.forEach((val, key) => requestBody[key] = val);
-    return fetch('../server.php', {
+    return fetch('./server.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
