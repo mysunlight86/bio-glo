@@ -101,7 +101,6 @@ const sendForm = () => {
     document.getElementById('form1'),
     document.getElementById('form2'),
     document.getElementById('form3'),
-    document.getElementById('form4'),
     document.getElementById('form11'),
     document.getElementById('form12'),
     document.getElementById('form13')
