@@ -20,9 +20,9 @@
   "homepage": "https://github.com/mysunlight86/bio-glo#readme",
   "devDependencies": {
     "node-forge": ">=0.10.0",
-    "webpack": "^4.43.0",
+    "webpack": "^5.52.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0",
+    "webpack-dev-server": "^4.1.0",
     "websocket-extensions": ">=0.1.4"
   }
 }
